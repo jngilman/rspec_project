@@ -23,3 +23,8 @@ end
 Then(/^I should see "([^"]*)"$/) do |message|
   expect(@messenger.string.split("\n")).to include(message)
 end
+
+Given(/^the secret code is "([^"]*)"$/) do |secret|
+  game = Codebreaker::Game.new(output)
+  game.start(secret)
+end
